@@ -82,7 +82,7 @@ header{
     padding: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(114,80,84,.45), rgba(232,77,91,.45)), url(https://s3.amazonaws.com/ooomf-com-files/x6YzbWWRq2sRhAacMjnl_Bangkok%20Indra%20market.jpg) no-repeat center center fixed; 
+    background: linear-gradient(0deg, rgba(232,77,91,.45), rgba(114,80,84,.45)), url(https://s3.amazonaws.com/ooomf-com-files/x6YzbWWRq2sRhAacMjnl_Bangkok%20Indra%20market.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -122,10 +122,32 @@ header{
         	font-weight: 800;
             margin-bottom: 7px;
            	font-family: 'Cabin', sans-serif;
+
         }
 
         h4{
         	color: white;
+           	overflow: hidden;
+		    text-align: center;
+		
+			&:before,
+			&:after {
+			    background-color: #fff;
+			    content: "";
+			    display: inline-block;
+			    height: 1px;
+			    position: relative;
+			    vertical-align: middle;
+			    width: 20%;
+			}
+			&:before {
+			    right: 0.5em;
+			    margin-left: -50%;
+			}
+			&:after {
+			    left: 0.5em;
+			    margin-right: -50%;
+			}
         }
 
         a{
@@ -164,19 +186,20 @@ header{
 
 .about{
 	// height: 60%;
-	background-color: #6FB07F;
+	background-color: #CC2A41;
 	color: white;
-	.container{
-		top: 25%;
-		padding: 49px 0px;
-	}
+	text-align: center;
+    
+    .container{
+        top: 25%;
+        padding: 49px 0px;
+    }
 
-	.descriptor{
-		text-align: center;
-		margin-bottom: 21px;
+    .descriptor{
+		margin-top: 14px;
 		box-sizing: border-box;
 		padding: 0px 14px;
-		
+        transition: all 0.4s;
 		.descriptor-image{
 			width: 100px;
 			height: 100px;
@@ -185,14 +208,126 @@ header{
 		}
 		img{
 			width: 96px;
-			height: 96px; 
+			height: auto; 
+            // margin-top: 14px;
 		}
 		h3{
+            margin-top: 14px;
 			color: white;
 			font-family: 'Cabin', sans-serif;
 			text-transform: uppercase;
+
+            &:after{
+                content: "";
+                border: solid 2px #524549;
+                display: block;
+                width: 35px;
+                margin: 14px auto;
+            }
 		}
+		p{
+			font-family: "Times New Roman";
+		}
+
+        .bottom{
+            width: 100%;
+            height: 7px;
+            background-color: white;
+            opacity: 0;
+            // transform: translateY(100%);
+            // transition: transform 0.4s, opacity 0.3s;
+        }
+        &:hover{
+            @include translate(0px, -10px);
+            transition: all 0.4s;
+            .bottom{
+                opacity: 1;
+                @include translate(0px, -10px);
+                // transition: opacity 0.6s;
+                transition: all 0.4s;
+            }
+        }
 	}
+}
+
+#map{
+	height: 500px;
+
+    .iwindow{
+        @include border-radius(20px);
+        background-color:   white;
+
+        &>div>div:last-child{
+            @include border-radius(20px);
+        }
+        &>div{
+            @include border-radius(20px); 
+        }
+        .bottom{
+            background-color: #CC2A41;
+        }
+
+    }
+	h3{
+		color: #CC2A41;
+		font-family: 'Cabin', sans-serif;
+		text-transform: uppercase;
+	}
+	p{
+		color: #CC2A41;
+		font-family: "Times New Roman";
+	}
+}
+
+.hope{
+    background: #351330;
+    padding: 42px 0px;
+    text-align: center;
+    h1{
+        text-transform: uppercase;
+        color: white;
+        font-family: 'Cabin', sans-serif;
+    }
+    img{
+        @include rotate(90deg);
+    }
+}
+
+.contact{
+    background-color: #EEEEEE;
+    text-align: center;
+
+    .container{
+        top: 25%;
+        padding: 49px 0px;
+    }
+
+    .contact-info{
+        background-color: white;
+        
+        &:hover{
+            box-shadow: 0px 3px 0px 0px #3dc9b3;
+            @include translate(0px, -10px);
+            // transition: opacity 0.6s;
+            transition: all 0.4s;
+        }
+    }
+
+    h3{
+        margin-top: 14px;
+        color: #3dc9b3;
+        font-family: 'Cabin', sans-serif;
+        text-transform: uppercase;
+
+        &:after{
+            content: "";
+            border: solid 2px #CC2A41;
+            display: block;
+            width: 35px;
+            margin: 14px auto;
+        }
+    }
+
 }
 /* MEDIA QUERIES
  * ------------------------------------------------ */

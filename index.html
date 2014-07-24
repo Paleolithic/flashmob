@@ -25,30 +25,133 @@
 <section class="about" id="about">
 	<div class="container">
 		<div class="eight columns descriptor">
-			<div class='descriptor-image'><img src='assets/images/calendar.png'/></div>
-			<h3>When</h3>
+			<div class='descriptor-image'><img src='assets/images/pointer.png'/></div>
+			<h3>Who</h3>
 			<p>Nam eget dui. Praesent blandit laoreet nibh. Etiam ultricies nisi vel augue. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.
 			</p>
-		</div>
-		<div class="eight columns descriptor">
-			<div class='descriptor-image'><img src='assets/images/location.png'/></div>
-			<h3>Where</h3>
-			<p>Nam eget dui. Praesent blandit laoreet nibh. Etiam ultricies nisi vel augue. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.
-			</p>
-		</div>
-		<div class="eight columns descriptor">
-			<div class='descriptor-image'><img src='assets/images/file.png'/></div>
-			<h3>What</h3>
-			<p>Nam eget dui. Praesent blandit laoreet nibh. Etiam ultricies nisi vel augue. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.
-			</p>
+			<div class="bottom"></div>
 		</div>
 		<div class="eight columns descriptor">
 			<div class='descriptor-image'><img src='assets/images/lightbulb.png'/></div>
 			<h3>Why</h3>
 			<p>Nam eget dui. Praesent blandit laoreet nibh. Etiam ultricies nisi vel augue. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.
 			</p>
+			<div class="bottom"></div>
+		</div>
+		<div class="eight columns descriptor">
+			<div class='descriptor-image'><img src='assets/images/file.png'/></div>
+			<h3>What</h3>
+			<p>Nam eget dui. Praesent blandit laoreet nibh. Etiam ultricies nisi vel augue. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.
+			</p>
+			<div class="bottom"></div>
+		</div>
+		<div class="eight columns descriptor">
+			<div class='descriptor-image'><img src='assets/images/calendar.png'/></div>
+			<h3>When</h3>
+			<p>Nam eget dui. Praesent blandit laoreet nibh. Etiam ultricies nisi vel augue. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.
+			</p>
+			<div class="bottom"></div>
 		</div>
 	</div>
 </section>
+<section class="about" id="where">
+	<div id='map'></div>	
+</section>
+<section class="hope">
+	<div class="container">
+		<h1 class="sixteen columns">Any questions?</h1>
+		<a href="#"><img src='assets/images/chevron.png'/></a>
+	</div>
+</section>
+<section class="contact">
+	<div class="container">
+		<div class="one-third column contact-info">
+			<h3>Address</h3>
+			<p>Level 6, 23 Pitt St, Sydney</p>
+		</div>
+		<div class="one-third column contact-info">
+			<h3>Phone</h3>
+			<p>+61 9 211 3747</p>
+		</div>
+		<div class="one-third column contact-info">
+			<h3>Email</h3>
+			<p>test@domain.tld</p>
+		</div>		
+	</div>
+</section>
+<footer>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSNWPbzxo6_7n7uHyLs2f8Nx8ZYcmsP4M&sensor=false"></script>
+	<script type="text/javascript">            
+		// When the window has finished loading create our google map below
+	    google.maps.event.addDomListener(window, 'load', init);
+
+	    function init() {
+	        // Basic options for a simple Google Map
+	        // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+	        var mapOptions = {
+	            // How zoomed in you want the map to start at (always required)
+	            zoom: 13,
+	            scrollwheel: false,
+	            streetViewControl: false,
+	            panControl: false,
+	            mapTypeControl: false,
+	            center: new google.maps.LatLng(40.814, -73.9597),
+	            mapTypeId: google.maps.MapTypeId.ROADMAP,
+	            zoomControlOptions: {
+	                style: google.maps.ZoomControlStyle.SMALL
+	            },
+	            
+	        };
+
+
+	        // Get the HTML DOM element that will contain your map 
+	        // We are using a div with id="map" seen below in the <body>
+	        var mapElement = document.getElementById('map');
+
+	        // Create the Google Map using out element and options defined above
+	        var map = new google.maps.Map(mapElement, mapOptions);
+	        var getCen = map.getCenter();
+			google.maps.event.addDomListener(window, 'resize', function() {
+				map.setCenter(getCen);
+			});
+
+			var contentString = 
+				'<div id="iwindow-descriptor" class="descriptor">'+
+					'<img src="assets/images/location_colored.png">'+
+					'<h3 id="firstHeading" class="firstHeading">Where</h3>'+
+					'<div id="bodyContent">'+
+						'<p>Nam eget dui. Praesent blandit laoreet nibh. Etiam ultricies nisi vel augue. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.</p>'+
+					'</div>'+
+					'<div class="bottom"></div>'+
+				'</div>';
+
+			var infowindow = new google.maps.InfoWindow({
+			  content: contentString,
+			  maxWidth: 460
+			});
+
+	        var marker = new google.maps.Marker({
+	            position: new google.maps.LatLng(40.7903, -73.9597),
+	            map: map,
+	            animation: google.maps.Animation.DROP,
+	            title: 'Field House'
+	        });
+
+	        infowindow.open(map,marker);
+
+
+		    google.maps.event.addListener(infowindow, 'domready', function() {
+		    	$l = $('#iwindow-descriptor').parent().parent().parent();
+		        $l.addClass('iwindow');
+		     });
+	        // var mapWidth = document.getElementById('map').style.width;
+	        // document.getElementById('map').style.height = mapWidth * .5;
+
+	        // $("#map").height($("#height").height()-20);
+	    }
+
+	</script>
+</footer>
 </body>
 </html>
